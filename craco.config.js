@@ -12,12 +12,11 @@ const path = require('path');
 module.exports = {
   webpack: {
     configure: (webpackConfig, { env, paths }) => {
-      if (env === 'production') {
-        // Debug entry and optimization structure
+      console.log('Environment:', env); // Debug env
+      if (env === 'production' || process.env.NODE_ENV === 'production') {
         console.log('webpackConfig.entry:', webpackConfig.entry);
         console.log('webpackConfig.optimization:', webpackConfig.optimization);
 
-        // Handle entry as an object (CRA default)
         if (typeof webpackConfig.entry === 'object' && !Array.isArray(webpackConfig.entry)) {
           const entryValues = Object.values(webpackConfig.entry);
           webpackConfig.entry = entryValues.flat().filter(
@@ -29,12 +28,10 @@ module.exports = {
           );
         }
 
-        // Remove React Refresh plugin
         webpackConfig.plugins = webpackConfig.plugins.filter(
-          plugin => plugin.constructor.name !== 'ReactRefreshPlugin'
+          plugin => plugin.constructor.name !== 'ReactRefreshPlugin' && plugin.constructor.name !== 'HotModuleReplacementPlugin'
         );
 
-        // Remove react-refresh and HMR from babel-loader
         webpackConfig.module.rules.forEach(rule => {
           if (rule.oneOf) {
             rule.oneOf.forEach(oneOfRule => {
@@ -50,13 +47,8 @@ module.exports = {
           }
         });
 
-        // Disable HMR and WebSocket configurations
-        webpackConfig.plugins = webpackConfig.plugins.filter(
-          plugin => plugin.constructor.name !== 'HotModuleReplacementPlugin'
-        );
         delete webpackConfig.devServer;
 
-        // Optimize to avoid development runtime with safeguards
         webpackConfig.optimization = {
           ...webpackConfig.optimization,
           runtimeChunk: false,
@@ -69,7 +61,6 @@ module.exports = {
           },
         };
 
-        // Ensure no development client is included
         webpackConfig.output = {
           ...webpackConfig.output,
           devtoolModuleFilenameTemplate: '[resource-path]',
@@ -77,7 +68,6 @@ module.exports = {
         };
       }
 
-      // Tailwind CSS and resolve configuration
       return {
         ...webpackConfig,
         resolve: {
