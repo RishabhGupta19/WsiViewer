@@ -1,13 +1,126 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+  .bounding-box {
+    border: 2px solid #ff4444;
+    
+    background: rgba(255, 255, 255, 0.1);
+ 
+    position: relative;
+  }
+  .bounding-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(5px); 
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+  }
+  @supports (backdrop-filter: blur(5px)) {
+    .bounding-box::after {
+      backdrop-filter: blur(5px); 
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+  .bounding-box {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  #center-viewer {
+    background: rgba(20, 19, 19, 0.5); 
+  }
+  
+  .openseadragon-container {
+    overflow: hidden;
+  }
+  
+  [data-tooltip] {
+    padding: 6px 10px;
+    font-size: 12px;
+    background: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s ease;
+  }
+  
+  button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-container {
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6b21a8; /* purple tone */
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navbar-brand:hover {
+    color: #5b1a98;
+    transform: scale(1.05);
+  }
+  
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); 
+  }
+  @supports not (backdrop-filter: blur(10px)) {
+    .glass {
+      background: rgba(255, 255, 255, 0.2); 
+      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+
+  @media (max-width: 768px) {
+    .w-3\/10 {
+      width: 100%;
+    }
+    .w-7\/10 {
+      width: 100%;
+    }
+    #center-viewer {
+      height: calc(100vh - 128px); 
+    }
+  }
