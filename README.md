@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+🖼️ Whole Slide Image Viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🌟 About the Project
 
-## Available Scripts
+The Whole Slide Image Viewer is a React-based web application that allows users to interactively view high-resolution pathology slide images. It includes features such as smooth zooming, panning, and the display of detection bounding boxes.
 
-In the project directory, you can run:
+🚀 Features
 
-### `npm start`
+🔍 Zoom & Pan: Intuitive slide navigation with mouse and touch gestures.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📦 Detection Overlays: Shows bounding boxes for detected regions of interest.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🧠 Optimized Rendering: Efficient rendering for large medical images.
 
-### `npm test`
+💻 React + TypeScript: Built using modern frontend stack (Vite + Tailwind CSS).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🖼️ Supports Whole Slide Images: Works with image tiles from formats like SVS, TIFF, etc.
 
-### `npm run build`
+📦 Installation & Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🔧 Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Ensure you have the following installed:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js 16+
+- A tile server (like OpenSeadragon-compatible backend)
+- Detection data (bounding boxes in JSON or similar format)
 
-### `npm run eject`
+📥 Clone the Repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/your-username/wsi-viewer.git
+cd wsi-viewer 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To Run : npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
