@@ -8,22 +8,19 @@
 //     },
 //   };
 module.exports = {
+  style: {
+    postcss: {
+      plugins: [require('tailwindcss'), require('autoprefixer')],
+    },
+  },
   webpack: {
-    configure: (webpackConfig) => {
-      // 🚫 Remove ReactRefreshWebpackPlugin in production
-      if (process.env.NODE_ENV === 'production') {
+    configure: (webpackConfig, { env }) => {
+      if (env === 'production') {
         webpackConfig.plugins = webpackConfig.plugins.filter(
-          (plugin) => plugin.constructor.name !== 'ReactRefreshWebpackPlugin'
+          plugin => plugin.constructor.name !== 'ReactRefreshPlugin'
         );
       }
       return webpackConfig;
-    },
-  },
-  style: {
-    postcss: {
-      plugins: [
-        require('@tailwindcss/postcss'), // ✅ TailwindCSS still configured
-      ],
     },
   },
 };
