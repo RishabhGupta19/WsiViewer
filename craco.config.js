@@ -13,8 +13,9 @@ module.exports = {
   webpack: {
     configure: (webpackConfig, { env, paths }) => {
       if (env === 'production') {
-        // Debug entry structure
+        // Debug entry and optimization structure
         console.log('webpackConfig.entry:', webpackConfig.entry);
+        console.log('webpackConfig.optimization:', webpackConfig.optimization);
 
         // Handle entry as an object (CRA default)
         if (typeof webpackConfig.entry === 'object' && !Array.isArray(webpackConfig.entry)) {
@@ -53,16 +54,16 @@ module.exports = {
         webpackConfig.plugins = webpackConfig.plugins.filter(
           plugin => plugin.constructor.name !== 'HotModuleReplacementPlugin'
         );
-        delete webpackConfig.devServer; // Explicitly remove dev server config
+        delete webpackConfig.devServer;
 
         // Optimize to avoid development runtime with safeguards
         webpackConfig.optimization = {
           ...webpackConfig.optimization,
           runtimeChunk: false,
           splitChunks: {
-            ...(webpackConfig.optimization?.splitChunks || {}), // Default to empty object if undefined
+            ...(webpackConfig.optimization?.splitChunks || {}),
             cacheGroups: {
-              ...(webpackConfig.optimization?.splitChunks?.cacheGroups || {}), // Default to empty object if undefined
+              ...(webpackConfig.optimization?.splitChunks?.cacheGroups || {}),
               default: false,
             },
           },
