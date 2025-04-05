@@ -1,36 +1,36 @@
-🖼️ Whole Slide Image Viewer
+# WSI Viewer 📸
 
-🌟 About the Project
 
-The Whole Slide Image Viewer is a React-based web application that allows users to interactively view high-resolution pathology slide images. It includes features such as smooth zooming, panning, and the display of detection bounding boxes.
 
-🚀 Features
+Welcome to **WSI Viewer**, a React-based web application designed to visualize whole-slide images (WSI) with interactive annotations. Built using OpenSeadragon, this tool allows users to explore high-resolution medical images, toggle bounding boxes, and navigate with built-in controls. Perfect for pathology, research, or educational purposes! 🔬
 
-🔍 Zoom & Pan: Intuitive slide navigation with mouse and touch gestures.
+## Table of Contents 📋
+- [Features](#features-⭐)
+- [Prerequisites](#prerequisites-📋)
 
-📦 Detection Overlays: Shows bounding boxes for detected regions of interest.
 
-🧠 Optimized Rendering: Efficient rendering for large medical images.
 
-💻 React + TypeScript: Built using modern frontend stack (Vite + Tailwind CSS).
+## Features ⭐
+- **High-Resolution Image Viewing**: Leverages OpenSeadragon for zooming and panning WSI.
+- **Interactive Bounding Boxes**: Toggle visibility of annotations (e.g., "Circular_RBC") with tooltips.
+- **Navigation Controls**: Built-in "Zoom In," "Zoom Out," "Go Home," and "Toggle Fullscreen" options.
+- **Glassmorphism Design**: Modern UI with blurred backgrounds and gradient effects.
+- **Responsive Layout**: 30%/70% split for Left Panel and Center View, stacks on mobile.
+- **Scale Bar**: Displays a customizable 2mm scale for measurement.
+- **Error Handling**: Alerts for failed image loads.
+- **Hide/Show Boxes**: Toggle button to show or hide bounding box annotations.
 
-🖼️ Supports Whole Slide Images: Works with image tiles from formats like SVS, TIFF, etc.
+## Prerequisites 📋
+Before you begin, ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v14 or later recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- A code editor (e.g., VS Code)
+- Git (for cloning the repository)
 
-📦 Installation & Setup
+## Installation Step 🚀
+Follow these steps to set up the project locally:
 
-🔧 Prerequisites
-
-Ensure you have the following installed:
-
-- Node.js 16+
-- A tile server (like OpenSeadragon-compatible backend)
-- Detection data (bounding boxes in JSON or similar format)
-
-📥 Clone the Repository
-
-```bash
-git clone https://github.com/your-username/wsi-viewer.git
-cd wsi-viewer 
-
-To Run : npm install
-
+ **Clone the Repository**  
+   ```bash
+   git clone https://github.com/rishabh-xyz/wsi-viewer.git
+   cd wsi-viewer
